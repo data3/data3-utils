@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 /**
  * User: jayon.xu@gmail.com
  */
-public class JSONUtil {
+public class JSONUtils {
 
     /**
      * 转换对象为字节Json格式

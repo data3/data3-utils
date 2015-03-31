@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringUtil {
+public class StringUtils {
     private static final String TABLE_FIELD_FUZZY_FLAG = "%";
 
     private static char[] letters;

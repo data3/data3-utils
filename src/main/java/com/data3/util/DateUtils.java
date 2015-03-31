@@ -24,9 +24,9 @@ import java.util.SimpleTimeZone;
  * Date util.
  * User: jayon.xu@gmail.com
  */
-public class DateUtil {
+public class DateUtils {
 
-    protected static final Logger LOGGER = LoggerFactory.getLogger(DateUtil.class);
+    protected static final Logger LOGGER = LoggerFactory.getLogger(DateUtils.class);
     private final static String DATE_FORMAT = "yyyy-MM-dd";
     /**
      * 缺省的日期格式
@@ -61,7 +61,7 @@ public class DateUtil {
     private static final String DEFAULT_UTC_DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ssXXX";
     private static SimpleDateFormat utcDateTimeFormat = new SimpleDateFormat(DEFAULT_UTC_DATETIME_FORMAT);
 
-    private DateUtil() {
+    private DateUtils() {
         // 私用构造主法.因为此类是工具类.
     }
 
@@ -229,8 +229,8 @@ public class DateUtil {
      * @return
      */
     public static Integer getFirstDayOfThisMonth() {
-        Integer year = DateUtil.getIntYearNow();
-        Integer month = DateUtil.getIntMonthNow();
+        Integer year = DateUtils.getIntYearNow();
+        Integer month = DateUtils.getIntMonthNow();
         return getIntDate(newCalendar(year, month, 1));
     }
 
@@ -406,7 +406,7 @@ public class DateUtil {
      * @return
      */
     public static Date getToday() {
-        return DateUtil.getDate(DateUtil.getIntToday());
+        return DateUtils.getDate(DateUtils.getIntToday());
     }
 
     /**
@@ -478,7 +478,7 @@ public class DateUtil {
      * @return 当前日期, 字符串类型.
      */
     public static String getStringDate() {
-        return getStringDate(DateUtil.getNow());
+        return getStringDate(DateUtils.getNow());
     }
 
     /**
@@ -508,9 +508,9 @@ public class DateUtil {
             return "";
         }
 
-        Integer intDate = DateUtil.getIntDate(DateUtil.getDate(dateStr));
-        Integer intDateAdd = DateUtil.intDateAdd(intDate, days);
-        return DateUtil.getStringDate(DateUtil.getDate(intDateAdd));
+        Integer intDate = DateUtils.getIntDate(DateUtils.getDate(dateStr));
+        Integer intDateAdd = DateUtils.intDateAdd(intDate, days);
+        return DateUtils.getStringDate(DateUtils.getDate(intDateAdd));
     }
 
     public static int getSeconds(Date date) {
@@ -606,7 +606,7 @@ public class DateUtil {
         public Integer deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
             try {
                 Date parse = format.parse(jsonParser.getText());
-                return DateUtil.getSeconds(parse);
+                return DateUtils.getSeconds(parse);
             } catch (ParseException e) {
                 throw new RuntimeException(e);
             }
